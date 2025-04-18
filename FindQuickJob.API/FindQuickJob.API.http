@@ -1,0 +1,6 @@
+@FindQuickJob.API_HostAddress = http://localhost:5295
+
+GET {{FindQuickJob.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
