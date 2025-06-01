@@ -58,6 +58,7 @@ namespace FindQuickJob.Application.Services
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Name, user.FullName),
                 new Claim(ClaimTypes.Email, user.Email),
+                
             };
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -72,7 +73,8 @@ namespace FindQuickJob.Application.Services
             {
                 Email = user.Email,
                 Token = new JwtSecurityTokenHandler().WriteToken(token),
-                UserId = user.Id
+                UserId = user.Id,
+                FullName = user.FullName
             };
 
         }
